@@ -2,19 +2,18 @@ package com.zhh.commonview.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
 import com.zhh.commonview.R;
-import com.zhh.commonview.utils.DensityUtil;
 
 /**
- * Created by zhanghai on 2018/7/31.
- * function：
+ * Created by Admin on 2017/10/23.
  */
-public class ImageTextView extends AppCompatTextView{
+
+public class ImageTextView extends AppCompatTextView {
     private Drawable mDrawableLeft;//设置左边图片
     private Drawable mDrawableTop;//设置上边图片
     private Drawable mDrawableRight;//设置右边图片
@@ -22,6 +21,9 @@ public class ImageTextView extends AppCompatTextView{
     private int mScaleWidth; // 图片的宽度
     private int mScaleHeight;// 图片的高度
     private Context mContext;
+
+    //是否需要绘制drawableLeft、drawableRight、drawableTop、drawableBottom
+//    private boolean isNeedInvalidateDrawable = false;
 
     public ImageTextView(Context context) {
         super(context);
@@ -46,34 +48,26 @@ public class ImageTextView extends AppCompatTextView{
         mDrawableTop = typedArray.getDrawable(R.styleable.ImageTextView_drawableTop);
         mDrawableRight = typedArray.getDrawable(R.styleable.ImageTextView_drawableRight);
         mDrawableBottom = typedArray.getDrawable(R.styleable.ImageTextView_drawableBottom);
-        mScaleWidth = typedArray.getDimensionPixelOffset(R.styleable.ImageTextView_drawableWidth,
-                        DensityUtil.dip2px(context,20));
-        mScaleHeight = typedArray.getDimensionPixelOffset(R.styleable.ImageTextView_drawableHeight,
-                DensityUtil.dip2px(context,20));
+
+        mScaleWidth = typedArray
+                .getDimensionPixelOffset(
+                        R.styleable.ImageTextView_drawableWidth, 20);
+        mScaleHeight = typedArray.getDimensionPixelOffset(
+                R.styleable.ImageTextView_drawableHeight, 20);
+        typedArray.recycle();
+
+//        int newWidth = AutoUtils.getPercentWidthSize(mScaleWidth);
+//        int newHeight = AutoUtils.getPercentHeightSize(mScaleHeight);
+//        if(mScaleWidth == mScaleHeight){
+//            mScaleWidth = mScaleHeight = Math.min(newWidth,newHeight);
+//        }else {
+//            mScaleWidth = newWidth;
+//            mScaleHeight = newHeight;
+//        }
+        //初始化时，设置边界图片
+        setCompoundDrawablesWithIntrinsicBounds(mDrawableLeft,mDrawableTop,mDrawableRight,mDrawableBottom);
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        if (mDrawableLeft != null) {
-            mDrawableLeft.setBounds(0,0,mScaleWidth,mScaleHeight);
-        }
-        if(mDrawableTop != null){
-            mDrawableTop.setBounds(0,0,mScaleWidth,mScaleHeight);
-        }
-        if(mDrawableRight != null){
-            mDrawableRight.setBounds(0,0,mScaleWidth,mScaleHeight);
-        }
-        if(mDrawableBottom != null){
-            mDrawableBottom.setBounds(0,0,mScaleWidth,mScaleHeight);
-        }
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        this.setCompoundDrawables(mDrawableLeft, mDrawableTop, mDrawableRight, mDrawableBottom);
-    }
 
     /**
      * 设置左侧图片并重绘
@@ -82,7 +76,7 @@ public class ImageTextView extends AppCompatTextView{
      */
     public void setDrawableLeft(Drawable drawable) {
         this.mDrawableLeft = drawable;
-        invalidate();
+        setCompoundDrawablesWithIntrinsicBounds(mDrawableLeft,mDrawableTop,mDrawableRight,mDrawableBottom);
     }
 
     /**
@@ -92,35 +86,17 @@ public class ImageTextView extends AppCompatTextView{
      */
     public void setDrawableLeft(int drawableRes) {
         this.mDrawableLeft = mContext.getResources().getDrawable(drawableRes);
-        invalidate();
+        setCompoundDrawablesWithIntrinsicBounds(mDrawableLeft,mDrawableTop,mDrawableRight,mDrawableBottom);
     }
 
     /**
-     * 设置顶部图片
-     * @param drawable
-     */
-    public void setDrawableTop(Drawable drawable){
-        this.mDrawableTop = drawable;
-        invalidate();
-    }
-
-    /**
-     * 设置顶侧图片并重绘
+     * 设置右侧图片并重绘
      *
-     * @param drawableRes
-     */
-    public void setDrawableTop(int drawableRes) {
-        this.mDrawableTop = mContext.getResources().getDrawable(drawableRes);
-        invalidate();
-    }
-
-    /**
-     * 设置右侧图片
      * @param drawable
      */
-    public void setDrawableRight(Drawable drawable){
+    public void setDrawableRight(Drawable drawable) {
         this.mDrawableRight = drawable;
-        invalidate();
+        setCompoundDrawablesWithIntrinsicBounds(mDrawableLeft,mDrawableTop,mDrawableRight,mDrawableBottom);
     }
 
     /**
@@ -130,16 +106,37 @@ public class ImageTextView extends AppCompatTextView{
      */
     public void setDrawableRight(int drawableRes) {
         this.mDrawableRight = mContext.getResources().getDrawable(drawableRes);
-        invalidate();
+        setCompoundDrawablesWithIntrinsicBounds(mDrawableLeft,mDrawableTop,mDrawableRight,mDrawableBottom);
     }
 
     /**
-     * 设置底部图片
+     * 设置顶部图片并重绘
+     *
      * @param drawable
      */
-    public void setDrawableBottom(Drawable drawable){
+    public void setDrawableTop(Drawable drawable) {
+        this.mDrawableTop = drawable;
+        setCompoundDrawablesWithIntrinsicBounds(mDrawableLeft,mDrawableTop,mDrawableRight,mDrawableBottom);
+    }
+
+    /**
+     * 设置顶部图片并重绘
+     *
+     * @param drawableRes
+     */
+    public void setDrawableTop(int drawableRes) {
+        this.mDrawableTop = mContext.getResources().getDrawable(drawableRes);
+        setCompoundDrawablesWithIntrinsicBounds(mDrawableLeft,mDrawableTop,mDrawableRight,mDrawableBottom);
+    }
+
+    /**
+     * 设置底部图片并重绘
+     *
+     * @param drawable
+     */
+    public void setDrawableBottom(Drawable drawable) {
         this.mDrawableBottom = drawable;
-        invalidate();
+        setCompoundDrawablesWithIntrinsicBounds(mDrawableLeft,mDrawableTop,mDrawableRight,mDrawableBottom);
     }
 
     /**
@@ -149,6 +146,32 @@ public class ImageTextView extends AppCompatTextView{
      */
     public void setDrawableBottom(int drawableRes) {
         this.mDrawableBottom = mContext.getResources().getDrawable(drawableRes);
-        invalidate();
+        setCompoundDrawablesWithIntrinsicBounds(mDrawableLeft,mDrawableTop,mDrawableRight,mDrawableBottom);
+    }
+
+    /**
+     * 重写父类方法，设置图片的边界尺寸和图片
+     * @param left 左边图片
+     * @param top 顶部图片
+     * @param right 右侧图片
+     * @param bottom 底部图片
+     */
+    @Override
+    public void setCompoundDrawablesWithIntrinsicBounds(@Nullable Drawable left,
+                                                        @Nullable Drawable top, @Nullable Drawable right, @Nullable Drawable bottom) {
+
+        if (left != null) {
+            left.setBounds(0, 0, mScaleWidth > 0 ? mScaleWidth : left.getIntrinsicWidth(), mScaleHeight > 0 ? mScaleHeight : left.getIntrinsicHeight());
+        }
+        if (right != null) {
+            right.setBounds(0, 0, mScaleWidth > 0 ? mScaleWidth : right.getIntrinsicWidth(), mScaleHeight > 0 ? mScaleHeight : right.getIntrinsicHeight());
+        }
+        if (top != null) {
+            top.setBounds(0, 0, mScaleWidth > 0 ? mScaleWidth : top.getIntrinsicWidth(), mScaleHeight > 0 ? mScaleHeight : top.getIntrinsicHeight());
+        }
+        if (bottom != null) {
+            bottom.setBounds(0, 0, mScaleWidth > 0 ? mScaleWidth : bottom.getIntrinsicWidth(), mScaleHeight > 0 ? mScaleHeight : bottom.getIntrinsicHeight());
+        }
+        setCompoundDrawables(left, top, right, bottom);
     }
 }
