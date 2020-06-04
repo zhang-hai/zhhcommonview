@@ -8,4 +8,52 @@
         <attr name="drawableWidth" format="dimension"/>
         <attr name="drawableHeight" format="dimension"/>
     </declare-styleable>
+
+    <!--雷达半径，不包括边缘文字-->
+    <attr name="radius" format="dimension"/>
+    <declare-styleable name="RadarChartView">
+        <!--雷达半径，不包括边缘文字-->
+        <attr name="radius"/>
+        <!--背景线条颜色-->
+        <attr name="backgroundLineColor" format="color"/>
+        <!--指标文字大小-->
+        <attr name="edgeTextSize" format="dimension"/>
+        <!--指标文字颜色-->
+        <attr name="edgeTextColor" format="color"/>
+        <!--区域颜色-->
+        <attr name="areaColor" format="color"/>
+        <!--折线颜色-->
+        <attr name="lineColor" format="color"/>
+    </declare-styleable>
+
+    <!--柱状图自定义属性-->
+    <declare-styleable name="BarChartView">
+        <!--柱状图宽度-->
+        <attr name="perBarWidth" format="dimension"/>
+        <!--每组内部柱状图之间的间距-->
+        <attr name="groupPerBarSpace" format="dimension"/>
+        <!--横线线条颜色-->
+        <attr name="yAxisLineColor" format="color"/>
+        <!--X轴标签文字颜色-->
+        <attr name="xLabelColor" format="color"/>
+        <!--X轴标签文字大小-->
+        <attr name="xLabelTextSize" format="dimension"/>
+        <!--Y轴标签文字颜色-->
+        <attr name="yLabelColor" format="color"/>
+        <!--Y轴标签文字大小-->
+        <attr name="yLabelTextSize" format="dimension"/>
+        <!--柱状图的图例文字颜色-->
+        <attr name="legendLabelColor" format="color"/>
+        <!--柱状图的图例文字大小-->
+        <attr name="legendLabelTextSize" format="dimension"/>
+        <!--柱状图的图例icon宽度-->
+        <attr name="legendIconWidth" format="dimension"/>
+        <attr name="legendIconShape">
+            <!--value值只能是int类型的  所以获取时通过typeArray.getInt获取-->
+            <!--正方形-->
+            <enum name="square" value="1"/>
+            <!--圆形-->
+            <enum name="circle" value="2"/>
+        </attr>
+    </declare-styleable>
 </resources>

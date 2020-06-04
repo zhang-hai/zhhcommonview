@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MoreFragmentTestActivity"/>
+        <activity android:name=".ChartActivity"/>
     </application>
 
 </manifest>
