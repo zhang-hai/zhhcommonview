@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_right">#01AC8E</color>
+    <color name="color_half_right">#FFB509</color>
+    <color name="color_error">#EF3233</color>
+    <color name="color_result_gray_stroke">#D3D3D3</color>
+</resources>

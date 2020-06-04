@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,15 +12,52 @@
         android:text="ImageTextView"
         android:textColor="#ff0000"
         android:textSize="20sp"
-        app:drawableWidth="30dp"
+        app:drawableBottom="@mipmap/ic_launcher"
         app:drawableHeight="30dp"
         app:drawableLeft="@mipmap/ic_launcher"
-        app:drawableTop="@mipmap/ic_launcher"
         app:drawableRight="@mipmap/ic_launcher"
-        app:drawableBottom="@mipmap/ic_launcher"
-        app:layout_constraintTop_toTopOf="parent"
+        app:drawableTop="@mipmap/ic_launcher"
+        app:drawableWidth="30dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.zhh.commonview.view.RoundTextView
+        android:id="@+id/rtv_stroke"
+        android:layout_width="wrap_content"
+        android:layout_height="40px"
+        android:gravity="center"
+        android:onClick="click"
+        android:paddingLeft="30px"
+        android:paddingRight="30px"
+        android:text="圆角边框"
+        app:corner="20px"
+        app:layout_constraintBottom_toBottomOf="@+id/itv_test"
+        app:layout_constraintEnd_toStartOf="@+id/rtv_solid"
+        app:layout_constraintStart_toEndOf="@+id/itv_test"
+        app:layout_constraintTop_toTopOf="parent"
+        app:press_stroke_color="@color/colorAccent"
+        app:press_text_color="@color/colorAccent"
+        app:solid_color="@android:color/transparent"
+        app:stroke_color="@color/color_fill_01AC8E"
+        app:stroke_width="2px" />
+
+    <com.zhh.commonview.view.RoundTextView
+        android:id="@+id/rtv_solid"
+        android:layout_width="wrap_content"
+        android:layout_height="40px"
+        android:gravity="center"
+        android:onClick="click"
+        android:paddingLeft="30px"
+        android:paddingRight="30px"
+        android:text="圆角填充"
+        app:corner="20px"
+        app:layout_constraintBottom_toBottomOf="@+id/itv_test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:press_solid_color="@color/colorAccent"
+        app:press_text_color="@android:color/white"
+        app:solid_color="@color/color_fill_01AC8E"
+        app:stroke_width="0px"/>
 
     <Button
         android:id="@+id/btn_more_fragments"
@@ -38,5 +76,7 @@
         android:text="测试自定义图表"
         android:onClick="click"
         app:layout_constraintTop_toBottomOf="@id/btn_more_fragments"/>
+
+
 
 </android.support.constraint.ConstraintLayout>

@@ -9,6 +9,19 @@
         <attr name="drawableHeight" format="dimension"/>
     </declare-styleable>
 
+    <declare-styleable name="RoundTextView">
+        <attr name="corner" format="dimension"/><!--圆角尺寸-->
+        <attr name="solid_color" format="color"/><!--正常状态背景填充色-->
+        <attr name="stroke_width" format="dimension"/><!--正常状态边框粗细-->
+        <attr name="stroke_color" format="color"/><!--正常状态的边框颜色-->
+        <attr name="press_solid_color" format="color"/><!--按下时的背景填充颜色-->
+        <attr name="press_stroke_color" format="color"/><!--按下时的背景边框颜色-->
+        <attr name="press_text_color" format="color"/> <!--按下时的字体颜色-->
+        <attr name="select_text_color" format="color"/> <!--选中时的字体颜色-->
+        <attr name="select_stroke_color" format="color"/> <!--选中时的边框颜色-->
+        <attr name="select_solid_color" format="color"/> <!--选中时的背景填充颜色-->
+    </declare-styleable>
+
     <!--雷达半径，不包括边缘文字-->
     <attr name="radius" format="dimension"/>
     <declare-styleable name="RadarChartView">
