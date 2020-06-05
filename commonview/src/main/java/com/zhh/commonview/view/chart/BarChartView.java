@@ -50,7 +50,7 @@ public class BarChartView extends View {
     private int mLegendLabelColor;  //柱状图的图例文字颜色
     private int mLegendLabelTextSize;//柱状图的图例文字大小 px
     private int mLegendIconWidth;    //柱状图的图例icon宽度 px
-    private int mLegendIconShape;    //柱状图的图例icon形状
+    private int mLegendIconShape = LegendIconShape.square;    //柱状图的图例icon形状
 
     private int mLegendOffY = 40;   //柱状图的图例在Y轴上偏移图表尺寸
     private Paint mLinePaint;       //柱状Y轴刻度图背景线条

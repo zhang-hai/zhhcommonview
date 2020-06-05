@@ -30,7 +30,7 @@ public class RadarChartView extends View {
     private final int DEFAULT_RADIUS = 50;//默认半径大小
     private Context mContext;
     //雷达半径
-    private int mRadius;
+    private int mRadius = DEFAULT_RADIUS;
     //雷达背景线条颜色
     private int backgroundLineColor;
     //雷达边缘指标文字大小
@@ -132,11 +132,23 @@ public class RadarChartView extends View {
         invalidate();
     }
 
+    /**
+     * 获取文本占用的尺寸
+     * @return
+     */
+    private Rect getLabelRect(String text){
+        Rect rect = new Rect();
+        mEdgeTextPaint.getTextBounds(text,0,text.length(),rect);
+        return rect;
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        setMeasuredDimension(getSize(mRadius * 2 + getPaddingLeft() + getPaddingRight(),widthMeasureSpec),
-                getSize(mRadius * 2 + getPaddingTop() + getPaddingBottom(),heightMeasureSpec));
+        Rect textR = getLabelRect("文本");
+        int textH = textR.height();
+        setMeasuredDimension(getSize(mRadius * 2 + getPaddingLeft() + getPaddingRight()+textH,widthMeasureSpec),
+                getSize(mRadius * 2 + getPaddingTop() + getPaddingBottom()+textH*2,heightMeasureSpec));
     }
 
     /**
@@ -156,7 +168,7 @@ public class RadarChartView extends View {
                 viewSize = defaultSize;
                 break;
             case MeasureSpec.EXACTLY://固定尺寸
-                viewSize = size;
+                viewSize = Math.max(defaultSize,size);
                 break;
             case MeasureSpec.AT_MOST://取计算出的最大尺寸
                 viewSize = Math.min(size,defaultSize);
