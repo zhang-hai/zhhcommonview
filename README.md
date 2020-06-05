@@ -1,7 +1,7 @@
 # zhhcommonview
 基础通用自定义view
 
-##### 1.ImageTextView #####
+#### 1.ImageTextView ####
 
 该View扩展了TextView，支持设置的icon的尺寸，可以做到icon大小自适应，支持上下左右设置icon。
 
@@ -25,7 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-##### 2.RoundTextView #####
+#### 2.RoundTextView ####
 
 是一款多功能的自定义View，通过代码的方式设置各种drawable样式，免去创建多个不用样式的xml的苦恼。
 该View同样扩展了TextView,除了带ImageTextView的功能外，还支持下设置
@@ -71,9 +71,9 @@
 - select_text_color 选中时的字体颜色
 
 
-##### 3.自定义图表组件 #####
+#### 3.自定义图表组件 ####
 
-<font size='3px'>雷达图</font>
+雷达图
 -------------
     
 使用方式：
@@ -123,7 +123,7 @@ XML中添加RadarChartView
      });
 
 
-<font size='3px'>柱状图</font>
+柱状图
 -------------
 
 支持组模式和单一柱图模式。
