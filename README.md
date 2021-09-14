@@ -1,6 +1,12 @@
 # zhhcommonview
 基础通用自定义view
 
+库引入方式,在对应需要使用该库的工程目录的build.gradle配置中设置：
+```
+implementation 'com.github.zhang-hai:zhhcommonview:0.6.0'
+```
+
+
 1.ImageTextView
 -------------
 
