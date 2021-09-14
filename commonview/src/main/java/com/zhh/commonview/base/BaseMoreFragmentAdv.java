@@ -1,6 +1,6 @@
 package com.zhh.commonview.base;
 
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 /**
  * Created by zhanghai on 2019/1/24.

@@ -1,6 +1,6 @@
 package com.zhh.commonview.adapter;
 
-import android.support.v4.app.FragmentManager;
+import androidx.fragment.app.FragmentManager;
 
 import com.zhh.commonview.base.BaseMoreFragmentAdv;
 
