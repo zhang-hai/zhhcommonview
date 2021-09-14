@@ -69,4 +69,10 @@
             <enum name="circle" value="2"/>
         </attr>
     </declare-styleable>
+
+    <!--左滑删除自定义属性-->
+    <declare-styleable name="LeftSlideLayout">
+        <attr name="contentView" format="reference"/>
+        <attr name="rightMenuView" format="reference"/>
+    </declare-styleable>
 </resources>

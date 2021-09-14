@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonview/commonview.iml" filepath="$PROJECT_DIR$/commonview/commonview.iml" />
       <module fileurl="file://$PROJECT_DIR$/zhhcommonview.iml" filepath="$PROJECT_DIR$/zhhcommonview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/zhhcommonview.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/zhhcommonview.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commonview/zhhcommonview.commonview.iml" filepath="$PROJECT_DIR$/.idea/modules/commonview/zhhcommonview.commonview.iml" />
     </modules>
   </component>
 </project>

@@ -9,7 +9,7 @@
         android:id="@+id/itv_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ImageTextView"
+        android:text="logo和文字组合"
         android:textColor="#ff0000"
         android:textSize="20sp"
         app:drawableBottom="@mipmap/ic_launcher"
@@ -59,11 +59,34 @@
         app:solid_color="@color/color_fill_01AC8E"
         app:stroke_width="0px"/>
 
+    <com.zhh.commonview.view.LeftSlideLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50px"
+        app:contentView="@id/tv_content"
+        app:rightMenuView="@id/iv_menu"
+        app:layout_constraintTop_toBottomOf="@id/itv_test">
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="150px"
+            android:background="@color/color_fill_01AC8E"
+            android:gravity="center"
+            android:text="左滑删除自定义View"/>
+        <ImageView
+            android:id="@+id/iv_menu"
+            android:layout_width="90px"
+            android:layout_height="150px"
+            android:onClick="click"
+            android:src="@mipmap/ic_item_delete"
+            android:background="@color/color_error"/>
+    </com.zhh.commonview.view.LeftSlideLayout>
+
     <Button
         android:id="@+id/btn_more_fragments"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ViewPager+Fragments(多)测试"
+        android:text="ViewPager+Fragments(多)组合测试"
         android:onClick="click"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
